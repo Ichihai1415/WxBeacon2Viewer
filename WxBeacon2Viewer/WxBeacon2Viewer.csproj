@@ -155,8 +155,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Weathernews.WxBeacon2">
-      <HintPath>..\..\..\..\software\lib\WxBeacon2\Weathernews.WxBeacon2.dll</HintPath>
+    <Reference Include="Weathernews.WxBeacon2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\wxbeacon2-csharp-extend\WxBeacon2\bin\DLL\Weathernews.WxBeacon2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

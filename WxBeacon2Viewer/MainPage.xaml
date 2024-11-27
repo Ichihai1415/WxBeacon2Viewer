@@ -10,21 +10,29 @@
     Width="600" Height="320" MaxWidth="600" MinWidth="600" MaxHeight="320" MinHeight="320">
 
     <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="initializing..." VerticalAlignment="Top" Margin="10,10,0,0" FontSize="24"/>
-        <TextBlock x:Name="T_dateTime" HorizontalAlignment="Center" Margin="0,46,0,0" TextWrapping="Wrap" Text="WxBeacon2       ---- / -- / -- -- : -- : --" VerticalAlignment="Top" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Margin="251,153,0,0" TextWrapping="Wrap" Text="℃                            %" VerticalAlignment="Top"  FontSize="36" Foreground="#BFFFFFFF" Width="344"/>
-        <TextBlock HorizontalAlignment="Right" Margin="0,267,10,0" TextWrapping="Wrap" Text="hPa                            V" VerticalAlignment="Top"  FontSize="36" RenderTransformOrigin="0.464,0.167" Foreground="#BFFFFFFF"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap" Text="Temperature           Humidity" VerticalAlignment="Top" FontSize="36" Foreground="#BFFFFFFF"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,201,0,0" TextWrapping="Wrap" Text="Pressure                  BatteryVoltage" VerticalAlignment="Top" FontSize="36" Foreground="#BFFFFFFF"/>
-        <TextBlock x:Name="T_tem" HorizontalAlignment="Right" Margin="0,114,352,0" TextWrapping="Wrap" Text="-- . -" VerticalAlignment="Top" FontSize="72"/>
-        <TextBlock x:Name="T_hum" HorizontalAlignment="Right" Margin="0,114,40,0" TextWrapping="Wrap" Text="-- . -" VerticalAlignment="Top" FontSize="72"/>
-        <TextBlock x:Name="T_pre" HorizontalAlignment="Right" Margin="0,229,370,0" TextWrapping="Wrap" Text="---- . -" VerticalAlignment="Top" FontSize="72"/>
-        <TextBlock x:Name="T_bat" HorizontalAlignment="Right" Margin="0,229,41,0" TextWrapping="Wrap" Text="- . --" VerticalAlignment="Top" FontSize="72"/>
-        <Border BorderBrush="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="5,95,0,0" VerticalAlignment="Top" Width="290" FocusVisualSecondaryBrush="#7F0000FF" CornerRadius="10,10,10,10"/>
-        <Border BorderBrush="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="305,95,0,0" VerticalAlignment="Top" Width="290" FocusVisualSecondaryBrush="#7F0000FF" CornerRadius="10,10,10,10"/>
-        <Border BorderBrush="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="5,209,0,0" VerticalAlignment="Top" Width="290" FocusVisualSecondaryBrush="#7F0000FF" CornerRadius="10,10,10,10"/>
-        <Border BorderBrush="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="305,209,0,0" VerticalAlignment="Top" Width="290" FocusVisualSecondaryBrush="#7F0000FF" CornerRadius="10,10,10,10"/>
+        <Border BorderBrush="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="5,95,0,0" VerticalAlignment="Top" Width="290" FocusVisualSecondaryBrush="#7F0000FF" CornerRadius="10,10,10,10">
+            <TextBlock HorizontalAlignment="Left" Margin="9,0,0,65" TextWrapping="Wrap" Text="Temperature" VerticalAlignment="Top" FontSize="30" Foreground="#BFFFFFFF"/>
+        </Border>
+        <Border BorderBrush="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="305,95,0,0" VerticalAlignment="Top" Width="290" FocusVisualSecondaryBrush="#7F0000FF" CornerRadius="10,10,10,10">
+            <TextBlock HorizontalAlignment="Left" Margin="9,0,0,65" TextWrapping="Wrap" Text="Humidity" VerticalAlignment="Top" FontSize="30" Foreground="#BFFFFFFF"/>
+        </Border>
+        <Border BorderBrush="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="5,209,0,0" VerticalAlignment="Top" Width="290" FocusVisualSecondaryBrush="#7F0000FF" CornerRadius="10,10,10,10">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pressure" VerticalAlignment="Top" FontSize="30" Foreground="#BFFFFFFF" RenderTransformOrigin="0.855,0.908" Margin="9,-1,0,0"/>
+        </Border>
+        <Border BorderBrush="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="305,209,0,0" VerticalAlignment="Top" Width="290" FocusVisualSecondaryBrush="#7F0000FF" CornerRadius="10,10,10,10">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="BatteryVoltage" VerticalAlignment="Top" FontSize="30" Foreground="#BFFFFFFF" Margin="9,-1,0,0"/>
+        </Border>
         <Border BorderBrush="White" BorderThickness="1" Width="600" Height="1" VerticalAlignment="Top" Margin="0,49,0,0" />
+        <TextBlock x:Name="T_info" HorizontalAlignment="Left" TextWrapping="Wrap" Text="initializing..." VerticalAlignment="Top" Margin="10,10,0,0" FontSize="24"/>
+        <TextBlock x:Name="T_dateTime" HorizontalAlignment="Center" Margin="0,46,0,0" TextWrapping="Wrap" Text="WxBeacon2       ---- / -- / -- -- : -- : --" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="248,153,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top"  FontSize="36" Foreground="#BFFFFFFF"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,153,17,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top"  FontSize="36" Foreground="#BFFFFFFF"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,267,316,0" TextWrapping="Wrap" Text="hPa" VerticalAlignment="Top"  FontSize="36" Foreground="#BFFFFFFF"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,267,16,0" TextWrapping="Wrap" Text="V" VerticalAlignment="Top"  FontSize="36" Foreground="#BFFFFFFF"/>
+        <TextBlock x:Name="T_tem" HorizontalAlignment="Right" Margin="0,114,355,0" TextWrapping="Wrap" Text="-- . -" VerticalAlignment="Top" FontSize="72"/>
+        <TextBlock x:Name="T_hum" HorizontalAlignment="Right" Margin="0,114,50,0" TextWrapping="Wrap" Text="-- . -" VerticalAlignment="Top" FontSize="72"/>
+        <TextBlock x:Name="T_pre" HorizontalAlignment="Right" Margin="0,228,376,0" TextWrapping="Wrap" Text="---- . -" VerticalAlignment="Top" FontSize="72"/>
+        <TextBlock x:Name="T_bat" HorizontalAlignment="Right" Margin="0,228,49,0" TextWrapping="Wrap" Text="- . --" VerticalAlignment="Top" FontSize="72"/>
         <CheckBox x:Name="C_AutoGet" Content="AutoGet" Margin="492,9,0,0" VerticalAlignment="Top" Width="97" FontSize="16" Checked="C_AutoGet_Checked" Unchecked="C_AutoGet_Unchecked" IsChecked="True"/>
     </Grid>
 </Page>

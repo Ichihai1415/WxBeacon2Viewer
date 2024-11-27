@@ -31,7 +31,7 @@ namespace WxBeacon2Viewer
             var getTime = DateTime.Now;//本来の取得時間できないかな
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                textBlock.Text = "";
+                T_info.Text = "";
                 T_dateTime.Text = "WxBeacon2       " + getTime.ToString();
                 T_tem.Text = latest.Temperature.ToString("F1");
                 T_hum.Text = latest.Humidity.ToString("F1");
@@ -46,13 +46,13 @@ namespace WxBeacon2Viewer
             wxBeacon2Watcher = null;
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                textBlock.Text = "disconnected";
+                T_info.Text = "disconnected";
             });
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            textBlock.Text = "searching...";
+            T_info.Text = "searching...";
             /*bool result = */
             ApplicationView.GetForCurrentView().TryResizeView(new Size { Width = 600, Height = 320 });
             wxBeacon2Watcher.Start();
@@ -60,7 +60,7 @@ namespace WxBeacon2Viewer
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
-            textBlock.Text = "exiting...";
+            T_info.Text = "exiting...";
             wxBeacon2Watcher.Stop();
         }
 
@@ -76,7 +76,7 @@ namespace WxBeacon2Viewer
             }
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                textBlock.Text = "searching...";
+                T_info.Text = "searching...";
             });
             wxBeacon2Watcher.Start();
             //wxBeacon2Watcher.Stop();//受信時切断するため

@@ -27,27 +27,36 @@ namespace WxBeacon2Viewer
 
         private async void WxBeacon2Watcher_Found(object sender, WxBeacon2 beacon)
         {
-            var latest = await beacon.GetLatestDataAsync();
-            var getTime = DateTime.Now;//本来の取得時間できないかな
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            try
             {
-                T_info.Text = "";
-                T_dateTime.Text = "WxBeacon2       " + getTime.ToString();
-                T_tem.Text = latest.Temperature.ToString("F1");
-                T_hum.Text = latest.Humidity.ToString("F1");
-                T_pre.Text = latest.Pressure.ToString("F1");
-                T_bat.Text = latest.BatteryVoltage.ToString("F2");
-            });
-            await LogHelper.CreateLogAsync(latest.ToString(), getTime);
+                var latest = await beacon.GetLatestDataAsync() ?? throw new Exception("Get failed.");
+                var getTime = DateTime.Now;//本来の取得時間できないかな
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    T_info.Text = "";
+                    T_dateTime.Text = "WxBeacon2       " + getTime.ToString();
+                    T_tem.Text = latest.Temperature.ToString("F1");
+                    T_hum.Text = latest.Humidity.ToString("F1");
+                    T_pre.Text = latest.Pressure.ToString("F1");
+                    T_bat.Text = latest.BatteryVoltage.ToString("F2");
+                });
+                await LogHelper.CreateLogAsync(latest.ToString(), getTime);
 
-            beacon.Dispose();
-            wxBeacon2Watcher.Stop();//受信時切断
-            wxBeacon2Watcher.Dispose();
-            wxBeacon2Watcher = null;
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                beacon.Dispose();
+                wxBeacon2Watcher.Dispose();//受信時切断
+                wxBeacon2Watcher = null;
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    T_info.Text = "disconnected";
+                });
+            }
+            catch (Exception ex)
             {
-                T_info.Text = "disconnected";
-            });
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    T_info.Text = "get failed! -> " + ex.Message;
+                });
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -64,7 +73,7 @@ namespace WxBeacon2Viewer
             wxBeacon2Watcher.Stop();
         }
 
-        private DispatcherTimer Timer = new DispatcherTimer();
+        private readonly DispatcherTimer Timer = new DispatcherTimer();
 
         private async void Timer_Tick(object sender, object e)
         {
